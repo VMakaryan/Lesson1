@@ -1,9 +1,5 @@
 package Homework;
 
-/**
- * Hello world!
- *
- */
 import java.util.Scanner;
 
 public class LeapYear{
