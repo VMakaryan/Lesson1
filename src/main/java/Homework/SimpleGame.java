@@ -40,16 +40,3 @@ public class SimpleGame {
 
 
 
-/*
-while (!guess){
-
-            int input = scanner.nextInt();
-            if (input==num){
-                System.out.println("Win!");
-                guess=true;
-            } else if (input<num){
-                System.out.println("Your number is smaller. Try again :");
-            } else if (input>num){
-                System.out.println("Your number is greater. Try again :");
-            }
-*/
