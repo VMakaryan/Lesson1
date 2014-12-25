@@ -16,7 +16,7 @@ public class SimpleGame {
 
         Scanner console = new Scanner(System.in);
 
-        while (win != true) {
+        while (!win) {
 
             System.out.print("Enter the number: ");
 

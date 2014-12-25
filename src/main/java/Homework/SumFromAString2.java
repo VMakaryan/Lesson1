@@ -1,34 +1,49 @@
 package Homework;
 
+import tasks.StringSumAlgorithm;
+
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by vmakaryan on 12/11/2014.
  */
 
-public class SumFromAString2 {
+public class SumFromAString2 implements StringSumAlgorithm {
+
 
     public static void main(String[] args) {
+        SumFromAString2 sum = new SumFromAString2();
+        String inputStr = "!@#$%^&FGHJLKL:hnbh2.34fgfgjksdfgkls;fg3lhtre4gf";
 
-        Scanner scanner = new Scanner(System.in);
+        System.out.println(sum.getSumFromString(inputStr));
+    }
 
-        System.out.println("Enter a string");
+    @Override
+    public double getSumFromString(String s) {
+        double result = 0;
+        Pattern patternDouble = Pattern.compile("\\d+[.]\\d+");
+        Matcher matcherDouble = patternDouble.matcher(s);
 
-        String string = scanner.next();
-
-        String digits [] = string.split("\\D+");
-
-        int sum = 0;
-
-        for (String str : digits) {
-            if (str.isEmpty()) {
-                continue;
-            }
-            sum += Integer.parseInt(str);
+        while(matcherDouble.find()){
+            result+= Double.parseDouble(matcherDouble.group());
+            s = s.replaceAll(matcherDouble.group(),"");
+        }
+        System.out.println(result);
+        Pattern patterInt = Pattern.compile("\\d+");
+        Matcher matcherInt = patterInt.matcher(s);
+        while(matcherInt.find()){
+            result+= Double.parseDouble(matcherInt.group());
         }
 
-        System.out.println(sum);
+        return result;
     }
+
 }
+
+
+
             
 
